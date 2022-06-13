@@ -1,4 +1,4 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
+// Hardhat Runtime Environment is explicitly required here. This is optional
 // but useful for running the script in a standalone fashion through `node <script>`.
 //
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
@@ -13,7 +13,7 @@ async function main() {
   // manually to make sure everything is compiled
   //await hre.run('compile');
 
-  // We get the contract to deploy
+  // The contract to deploy
   const [owner] = await hre.ethers.getSigners();
   const BankContractFactory = await hre.ethers.getContractFactory("boomerBank");
   const BankContract = await BankContractFactory.deploy();
@@ -23,8 +23,7 @@ async function main() {
   console.log("BankContract owner address:", owner.address);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+// Pretty nice pattern that uses async/await and properly handles errors.
 main()
   .then(() => process.exit(0))
   .catch((error) => {
